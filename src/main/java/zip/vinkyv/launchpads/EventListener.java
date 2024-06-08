@@ -7,6 +7,8 @@ import cn.nukkit.block.Block;
 import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerMoveEvent;
+import cn.nukkit.level.ParticleEffect;
+import cn.nukkit.level.Sound;
 import cn.nukkit.math.Vector3;
 
 public class EventListener implements Listener {
@@ -21,6 +23,8 @@ public class EventListener implements Listener {
       Integer multiplier = multiple.get(blocks.indexOf(block.getId())); // Find index of block id in List from config and get multiplier of it
       Vector3 velocity = player.getDirectionVector().multiply(multiplier).setY(1); // Multiply direction on configurated multiplier, Y = 1 to implement jump
       player.setMotion(velocity); //Launch player
+      player.getLevel().addSound(new Vector3(player.x, player.y, player.z), Sound.MOB_ENDERDRAGON_FLAP);
+      player.getLevel().addParticleEffect(new Vector3(player.x, player.y, player.z), ParticleEffect.EYE_OF_ENDER_BUBBLE);
     }
   }
 }

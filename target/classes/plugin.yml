@@ -1,0 +1,5 @@
+name: Launchpads
+main: zip.vinkyv.launchpads.MainPlugin
+version: "1.0.0"
+api: ["1.0.0"]
+author: VinkyV#7660
